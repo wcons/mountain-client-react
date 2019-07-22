@@ -1,15 +1,13 @@
 import React, { Component } from 'react'
 import './App.scss'
 import { Route } from 'react-router-dom'
-
+import AutoDismissAlert from './auth/components/AutoDismissAlert/AutoDismissAlert'
 import AuthenticatedRoute from './auth/components/AuthenticatedRoute'
 import Header from './header/Header'
 import SignUp from './auth/components/SignUp'
 import SignIn from './auth/components/SignIn'
 import SignOut from './auth/components/SignOut'
 import ChangePassword from './auth/components/ChangePassword'
-
-import Alert from 'react-bootstrap/Alert'
 
 class App extends Component {
   constructor () {
@@ -35,13 +33,7 @@ class App extends Component {
     return (
       <React.Fragment>
         <Header user={user} />
-        {alerts.map((alert, index) => (
-          <Alert key={index} dismissible variant={alert.type}>
-            <Alert.Heading>
-              {alert.message}
-            </Alert.Heading>
-          </Alert>
-        ))}
+
         <main className="container">
           <Route path='/sign-up' render={() => (
             <SignUp alert={this.alert} setUser={this.setUser} />
@@ -56,6 +48,12 @@ class App extends Component {
             <ChangePassword alert={this.alert} user={user} />
           )} />
         </main>
+        {alerts && alerts.map((alert, index) => (
+          <AutoDismissAlert
+            key={index}
+            alert={alert}
+          />
+        ))}
       </React.Fragment>
     )
   }
