@@ -8,6 +8,8 @@ import SignUp from './auth/components/SignUp'
 import SignIn from './auth/components/SignIn'
 import SignOut from './auth/components/SignOut'
 import ChangePassword from './auth/components/ChangePassword'
+import Mountains from './components/routes/Mountains'
+import Mountain from './components/routes/Mountain'
 
 class App extends Component {
   constructor () {
@@ -47,6 +49,10 @@ class App extends Component {
           <AuthenticatedRoute user={user} path='/change-password' render={() => (
             <ChangePassword alert={this.alert} user={user} />
           )} />
+          <Route user={user} exact path='/mountains' render={() => (
+            <Mountains alert={this.alert} user={this.setUser} />
+          )} />
+          <Route exact path="/mountains/:id" component={Mountain}/>
         </main>
         {alerts && alerts.map((alert, index) => (
           <AutoDismissAlert
