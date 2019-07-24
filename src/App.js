@@ -10,6 +10,7 @@ import SignOut from './auth/components/SignOut'
 import ChangePassword from './auth/components/ChangePassword'
 import Mountains from './components/routes/Mountains'
 import Mountain from './components/routes/Mountain'
+import MountainCreate from './components/routes/MountainCreate'
 
 class App extends Component {
   constructor () {
@@ -48,6 +49,9 @@ class App extends Component {
           )} />
           <AuthenticatedRoute user={user} path='/change-password' render={() => (
             <ChangePassword alert={this.alert} user={user} />
+          )} />
+          <AuthenticatedRoute user={user} path='/list-mountain' render={() => (
+            <MountainCreate alert={this.alert} user={user} />
           )} />
           <Route user={user} exact path='/mountains' render={() => (
             <Mountains alert={this.alert} user={this.setUser} />
