@@ -2,6 +2,8 @@ $charcoal: #bbb;
 
 .main-header {
   align-items: center;
+  background-image: url('madison_summit.jpg');
+  background-position: center;
   border-bottom: 1px solid $charcoal;
   display: flex;
   height: 100px;
@@ -47,4 +49,7 @@ $charcoal: #bbb;
       width: 80%;
     }
   }
+}
+a {
+color: Olive;  
 }
