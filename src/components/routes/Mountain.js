@@ -3,7 +3,7 @@ import { Link, Redirect, withRouter } from 'react-router-dom'
 import Layout from '../shared/Layout'
 import axios from 'axios'
 import apiUrl from '../../apiConfig'
-// import Layout from '../shared/Layout.js'
+import messages from '../../auth/messages'
 
 class Mountain extends Component {
   constructor (props) {
@@ -23,7 +23,7 @@ class Mountain extends Component {
   }
 
   destroy = () => {
-    console.log(this.props.user)
+    const { alert } = this.props
     axios({
       method: 'DELETE',
       url: `${apiUrl}/mountains/${this.props.match.params.id}`,
@@ -32,7 +32,8 @@ class Mountain extends Component {
       }
     })
       .then(() => this.setState({ deleted: true }))
-      .catch(err => this.setState({ error: err.message }))
+      .then(() => alert(messages.deleteSuccess, 'success'))
+      .catch(() => alert(messages.deleteFailure, 'danger'))
   }
 
   render () {
@@ -40,7 +41,7 @@ class Mountain extends Component {
 
     if (deleted) {
       return <Redirect to={
-        { pathname: '/mountains/', state: { msg: 'Mountain Successfully Deleted!!' } }
+        { pathname: '/mountains/' }
       } />
     }
 
