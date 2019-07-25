@@ -11,6 +11,7 @@ import ChangePassword from './auth/components/ChangePassword'
 import Mountains from './components/routes/Mountains'
 import Mountain from './components/routes/Mountain'
 import MountainCreate from './components/routes/MountainCreate'
+import MountainEdit from './components/routes/MountainEdit'
 
 class App extends Component {
   constructor () {
@@ -58,6 +59,9 @@ class App extends Component {
           )} />
           <AuthenticatedRoute user={user} exact path='/mountains/:id' render={() => (
             <Mountain alert={this.alert} user={user} />
+          )} />
+          <AuthenticatedRoute user={user} exact path='/mountains/:id/edit' render={() => (
+            <MountainEdit alert={this.alert} user={user} />
           )} />
         </main>
         {alerts && alerts.map((alert, index) => (

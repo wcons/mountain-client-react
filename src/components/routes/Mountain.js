@@ -1,5 +1,6 @@
 import React, { Component } from 'react'
 import { Link, Redirect, withRouter } from 'react-router-dom'
+import Layout from '../shared/Layout'
 import axios from 'axios'
 import apiUrl from '../../apiConfig'
 // import Layout from '../shared/Layout.js'
@@ -48,14 +49,18 @@ class Mountain extends Component {
     }
 
     return (
-      <React.Fragment>
+      <Layout>
         <h4>{mountain.name}</h4>
         <p>Height: {mountain.height}</p>
         <p>Latitude: {mountain.lat}</p>
         <p>Longitude: {mountain.long}</p>
         <button onClick={this.destroy}>Delete Mountain</button>
+        <Link to={`/mountains/${this.props.match.params.id}/edit`}>
+          <button>Edit Mountain</button>
+        </Link>
         <Link to="/mountains/">Back</Link>
-      </React.Fragment>
+
+      </Layout>
     )
   }
 }
