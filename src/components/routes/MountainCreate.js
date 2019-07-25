@@ -34,14 +34,14 @@ class MountainCreate extends Component {
     const editedMountain = Object.assign(this.state.mountain, updatedField)
 
     // finally setState with updates object
-    this.setState({ movie: editedMountain })
+    this.setState({ mountain: editedMountain })
   }
 
   handleSubmit = event => {
     event.preventDefault()
 
     axios({
-      method: 'post',
+      method: 'POST',
       url: `${apiUrl}/mountains`,
       data: {
         mountain: this.state.mountain

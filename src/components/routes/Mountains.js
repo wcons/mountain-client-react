@@ -32,7 +32,7 @@ class Mountains extends Component {
   render () {
     const { mountains, error, loaded } = this.state
     const mountainsList = mountains.map(mountain => (
-      <li key={mountain.id}>
+      <li key={mountain._id}>
         <Link to={`/mountains/${mountain._id}`}>{mountain.name}</Link>
       </li>
     ))
