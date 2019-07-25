@@ -4,6 +4,7 @@ import Layout from '../shared/Layout'
 import MountainForm from '../shared/MountainForm'
 import axios from 'axios'
 import apiUrl from '../../apiConfig'
+import messages from '../../auth/messages'
 
 class MountainEdit extends Component {
   // Step 1: initialize constructor, state
@@ -69,6 +70,7 @@ class MountainEdit extends Component {
 
   handleSubmit = event => {
     event.preventDefault()
+    const { alert } = this.props
     axios({
       method: 'PATCH',
       url: `${apiUrl}/mountains/${this.props.match.params.id}`,
@@ -80,7 +82,8 @@ class MountainEdit extends Component {
       }
     })
       .then(res => this.setState({ updatedMountainId: this.props.match.params.id, edited: true }))
-      .catch(console.error)
+      .then(() => alert(messages.editSuccess, 'success'))
+      .catch(() => alert(messages.editFailure, 'danger'))
   }
   // Step 5: on submit - update state & handle redirect in render
 }

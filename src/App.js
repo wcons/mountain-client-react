@@ -1,6 +1,6 @@
 import React, { Component } from 'react'
 import './App.scss'
-import { Route } from 'react-router-dom'
+import { Route, withRouter } from 'react-router-dom'
 import AutoDismissAlert from './auth/components/AutoDismissAlert/AutoDismissAlert'
 import AuthenticatedRoute from './auth/components/AuthenticatedRoute'
 import Header from './header/Header'
@@ -75,4 +75,4 @@ class App extends Component {
   }
 }
 
-export default App
+export default withRouter(App)

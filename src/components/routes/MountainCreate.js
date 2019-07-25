@@ -2,7 +2,6 @@ import React, { Component } from 'react'
 import { Redirect, withRouter } from 'react-router-dom'
 import Layout from '../shared/Layout'
 import MountainForm from '../shared/MountainForm'
-import AutoDismissAlert from '../../auth/components/AutoDismissAlert/AutoDismissAlert'
 
 import axios from 'axios'
 import apiUrl from '../../apiConfig'
@@ -19,7 +18,6 @@ class MountainCreate extends Component {
         lat: '',
         long: ''
       },
-      alerts: [],
       createdMountainId: null
     }
   }
@@ -39,7 +37,7 @@ class MountainCreate extends Component {
 
   handleSubmit = event => {
     event.preventDefault()
-
+    const { alert } = this.props
     axios({
       method: 'POST',
       url: `${apiUrl}/mountains`,
@@ -53,16 +51,12 @@ class MountainCreate extends Component {
 
       .then(res => this.setState({ createdMountainId: res.data.mountain.id }))
       .then(() => alert(messages.createSuccess, 'success'))
-      .catch(console.error)
-  }
-
-  alert = (message, type) => {
-    this.setState({ alerts: [...this.state.alerts, { message, type }] })
+      .catch(() => alert(messages.createFailure, 'danger'))
   }
 
   render () {
     const { handleChange, handleSubmit } = this
-    const { mountain, createdMountainId, alerts } = this.state
+    const { mountain, createdMountainId } = this.state
 
     if (createdMountainId) {
       return <Redirect to={`/mountains/${createdMountainId}`}/>
@@ -74,14 +68,8 @@ class MountainCreate extends Component {
           mountain={mountain}
           handleChange={handleChange}
           handleSubmit={handleSubmit}
-          cancelPath="/"
+          cancelPath="/mountains"
         />
-        {alerts && alerts.map((alert, index) => (
-          <AutoDismissAlert
-            key={index}
-            alert={alert}
-          />
-        ))}
       </Layout>
 
     )

@@ -10,5 +10,9 @@ export default {
   changePasswordFailure: 'Failed to change passwords. Check your old password' +
                          ' and try again.',
   deleteSuccess: 'Deleted!',
-  createSuccess: 'Listed a new mountain!'
+  deleteFailure: 'Failed! You may not have permission to perform this action.',
+  createSuccess: 'Listed a new mountain!',
+  createFailure: 'New listing has failed!',
+  editSuccess: 'Entry edited',
+  editFailure: 'Attempt to edit entry has failed!'
 }
