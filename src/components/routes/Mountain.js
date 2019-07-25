@@ -2,7 +2,7 @@ import React, { Component } from 'react'
 import { Link, Redirect, withRouter } from 'react-router-dom'
 import axios from 'axios'
 import apiUrl from '../../apiConfig'
-import Layout from '../shared/Layout.js'
+// import Layout from '../shared/Layout.js'
 
 class Mountain extends Component {
   constructor (props) {
@@ -22,8 +22,9 @@ class Mountain extends Component {
   }
 
   destroy = () => {
+    console.log(this.props.user)
     axios({
-      method: 'delete',
+      method: 'DELETE',
       url: `${apiUrl}/mountains/${this.props.match.params.id}`,
       headers: {
         Authorization: 'Token token=' + this.props.user.token
@@ -47,14 +48,14 @@ class Mountain extends Component {
     }
 
     return (
-      <Layout>
+      <React.Fragment>
         <h4>{mountain.name}</h4>
         <p>Height: {mountain.height}</p>
         <p>Latitude: {mountain.lat}</p>
         <p>Longitude: {mountain.long}</p>
         <button onClick={this.destroy}>Delete Mountain</button>
         <Link to="/mountains/">Back</Link>
-      </Layout>
+      </React.Fragment>
     )
   }
 }
