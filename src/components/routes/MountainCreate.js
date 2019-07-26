@@ -49,7 +49,7 @@ class MountainCreate extends Component {
       }
     })
 
-      .then(res => this.setState({ createdMountainId: res.data.mountain.id }))
+      .then(res => this.setState({ createdMountainId: res.data.mountain._id }))
       .then(() => alert(messages.createSuccess, 'success'))
       .catch(() => alert(messages.createFailure, 'danger'))
   }
