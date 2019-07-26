@@ -31,10 +31,10 @@ Being new to React, I had to do a lot of troubleshooting to make sure my UI comp
 
 ### Wireframes
 
-[Homepage](https://i.imgur.com/wW7e8Il.png)
-[Sign-up](https://i.imgur.com/9WrUTmQ.png)
-[Sign-in](https://i.imgur.com/hyST86y.png)
-[Edit Mountain](https://i.imgur.com/aJJLcgo.png)
+* [Homepage](https://i.imgur.com/wW7e8Il.png)
+* [Sign-up](https://i.imgur.com/9WrUTmQ.png)
+* [Sign-in](https://i.imgur.com/hyST86y.png)
+* [Edit Mountain](https://i.imgur.com/aJJLcgo.png)
 
 ### User Stories
 
