@@ -63,3 +63,5 @@ Stretch goals:
 ![Screenshot](https://imgur.com/Hhcp9ML.jpg)
 
 ### Installation & Setup instructions
+ 
+ There are no special set-up insctructions or additional components to install at this time.
