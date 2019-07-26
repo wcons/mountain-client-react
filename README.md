@@ -60,4 +60,6 @@ Stretch goals:
 
 ### Screenshot
 
+https://imgur.com/Hhcp9ML
+
 ### Installation & Setup instructions
