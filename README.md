@@ -6,7 +6,7 @@ Link to back-end repository: <https://github.com/wcons/mountain-api-express>
 
 Link to deployed application: <https://wcons.github.io/mountain-client-react>
 
-Link to Heroku deployment:
+Link to Heroku deployment: <https://evening-taiga-11840.herokuapp.com/>
 
 ### Technologies Used
   * React
