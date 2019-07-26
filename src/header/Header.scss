@@ -14,6 +14,11 @@ $charcoal: #bbb;
     font-size: 1.2em;
     margin: 0 15px;
   }
+
+  a {
+    color: #808000;
+    text-shadow: 2px 2px #000000;
+  }
 }
 
 .main-header > nav {
@@ -49,7 +54,4 @@ $charcoal: #bbb;
       width: 80%;
     }
   }
-}
-a {
-color: Olive;  
 }
