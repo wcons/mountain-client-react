@@ -1,7 +1,3 @@
-FRONT END:
-
-Description field:  A UI for a tracker to record your progress and notes from hiking New Hampshire's 4000-foot peaks
-
 ### Summary
 
 This app provides a journal that allows the user to record which of the [New Hampshire 48 4,000-footers](http://4000footers.com/nh.shtml) they have hiked, adding descriptions of their hike and uploading photos.  This repository contains the client-side code for the application.
